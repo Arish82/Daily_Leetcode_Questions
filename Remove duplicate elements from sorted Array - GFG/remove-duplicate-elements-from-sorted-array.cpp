@@ -10,17 +10,15 @@ using namespace std;
 
 class Solution{
 public:
-        int hash[1000001]={0};
     int remove_duplicate(int a[],int n){
+        set<int> s; 
         for(int i=0;i<n;i++){
-            hash[a[i]]++;
+            s.insert(a[i]);
         }
         int k=0;
-        for(int i=0;i<1000001;i++){
-            if(hash[i]!=0){
-                a[k]=i;
-                k++;
-            }
+        for(int i: s){
+            a[k]=i;
+            k++;
         }
         return k;
     }
