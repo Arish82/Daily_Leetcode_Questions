@@ -9,22 +9,31 @@ class Solution{
     //arr1,arr2 : the arrays
     // n, m: size of arrays
     //Function to return a list containing the union of the two arrays. 
-    vector<int> findUnion(int arr1[], int arr2[], int n, int m)
-    {
-        set<int> man;
-        for(int i=0;i<n;i++){
-            man.insert(arr1[i]);
-        }
-        for(int i=0;i<m;i++){
-            man.insert(arr2[i]);
-        }
-        vector<int> ans;
+    void print(vector<int>& arr){
+        for(int i=0;i<arr.size();i++)
+        cout<<arr[i]<<" ";
         
-        for(int i: man){
-            ans.push_back(i);
+        cout<<"\n";
+    }
+    vector<int> findUnion(int arr1[], int arr2[], int n, int m) {
+        
+        set<int> u;
+        for(int i=0;i<n;i++)
+        {
+            u.insert(arr1[i]);
+        }
+        for(int i=0;i<m;i++)
+        {
+            u.insert(arr2[i]);
         }
         
-        return ans;
+        
+        vector <int> f;
+        for(int x:u)
+        {
+            f.push_back(x);
+        }
+        return f;
     }
 };
 
